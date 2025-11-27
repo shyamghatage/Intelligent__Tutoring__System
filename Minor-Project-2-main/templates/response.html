@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Response from {{ agent }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 50px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: left;
+            display: inline-block;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Agent: {{ agent }}</h2>
+    <p>{{ response | safe }}</p>
+    <a href="/">Ask Another Question</a>
+</body>
+</html>

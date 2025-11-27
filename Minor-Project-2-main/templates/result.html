@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 50px;
+            text-align: center;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            background: #fff;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 18px;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 700px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            display: block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Quiz Completed!</h2>
+    <p>You scored {{ score }} out of {{ total }}.</p>
+
+    {% if wrong_answers %}
+        <h3>Topics to Review:</h3>
+        <ul>
+            {% for item in wrong_answers %}
+                <li>{{ item.question }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="/">Return to Home</a>
+</body>
+</html>

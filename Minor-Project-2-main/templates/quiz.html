@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz on {{ topic }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      color: #333;
+    }
+    .option {
+      margin: 10px 0;
+    }
+    .feedback {
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      font-weight: bold;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h2>Question {{ q_number }} of {{ total }}</h2>
+  <p><strong>{{ question }}</strong></p>
+
+  <form method="POST">
+    {% if not submitted %}
+      {% for key, value in options.items() %}
+        <div class="option">
+          <label>
+            <input type="radio" name="option" value="{{ key }}" required>
+            {{ key }}. {{ value }}
+          </label>
+        </div>
+      {% endfor %}
+      <button type="submit" name="submit" class="btn">Submit Answer</button>
+    {% else %}
+      {% for key, value in options.items() %}
+        <div class="option">
+          <strong>{{ key }}.</strong> {{ value }}
+        </div>
+      {% endfor %}
+      <div class="feedback">{{ feedback }}</div>
+      <button type="submit" name="next" class="btn">Next Question</button>
+    {% endif %}
+  </form>
+</body>
+</html>
